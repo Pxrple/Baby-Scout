@@ -10,7 +10,7 @@ client.on('ready', () => {
     console.log(`Bot Author: Ori#0004`)
     console.log(`Servers: ${client.guilds.size}`)
     console.log(`Users using Bot: ${client.users.size}`)
-    console.log(`Bot Version: 1.0`)
+    console.log(`Bot Version: 1.1`)
     console.log('Library: Discord.js')
     console.log(`===================================`)
     client.user.setStatus('dnd')
@@ -31,7 +31,7 @@ client.on('message', message => {
 });
 client.on('message', message => {
     if (!message.guild) return;
-      if (message.content.startsWith(`+su`)) {// 👍 👎
+      if (message.content.startsWith(`+su`)) {
           const embed = new RichEmbed()
           .setAuthor('New Suggestion')
           .setTitle('Upvote | Downvote')
@@ -39,12 +39,12 @@ client.on('message', message => {
           .setDescription('Suggest plans in: <#597161939793215596>\n ``+su <suggestion>``\n \nDiscuss the suggestion and we __all__ will collectively decide if we should add it to the plan! :smile:')
           .setThumbnail(`${message.author.displayAvatarURL}`)
           .addBlankField(true)
-          .addField('**Suggestion:**',
-          `${message.author.lastMessage}`)
+          .addField('Suggestion:',
+          `**${message.author.lastMessage}**`)
           .addField('Suggestion by:',
-          `${message.author.tag}`)
+          `**${message.author.tag}**`)
   
-          message.channel.send({embed});
+          client.channels.get("597161939793215596").send(embed);
           message.delete();
     }
 });
