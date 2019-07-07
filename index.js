@@ -45,6 +45,9 @@ client.on('message', message => {
           `**${message.author.tag}**`)
   
           client.channels.get("597161939793215596").send(embed);
+          channel.send({embed}).then(sentEmbed => {
+          sentEmbed.react("<:Plus:597241868526551048>")
+          sentEmbed.react("<:Minus:597241850125877259>")
           message.delete();
     }
 });
